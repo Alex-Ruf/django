@@ -79,6 +79,8 @@ TEMPLATES = [
     },
 ]
 
+
+
 WSGI_APPLICATION = 'geekshop.wsgi.application'
 
 # Database
