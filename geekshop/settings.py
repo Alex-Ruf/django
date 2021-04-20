@@ -25,7 +25,8 @@ SECRET_KEY = '#r@g46(!2r+*^oourvn4ms4swjq5(ch135n(-a5z@g#v2ur5l$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.134', 'localhost']
+
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -79,15 +80,28 @@ TEMPLATES = [
     },
 ]
 
+
+
+
 WSGI_APPLICATION = 'geekshop.wsgi.application'
+
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #
+    # },
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+        'NAME': 'django',
+        'ENGINE': 'django.db.backends.postgresql',
+        'USER': 'postgres'
+
 
     }
 }
@@ -130,6 +144,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
+
 )
 
 MEDIA_URL = '/media/'
@@ -158,6 +173,7 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'social_core.backends.vk.VKOAuth2',
 )
+
 
 LOGIN_ERROR_URL = '/'
 
